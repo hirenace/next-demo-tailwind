@@ -3,16 +3,15 @@ import { useRouter } from 'next/router';
 
 const Login = () => {
     const [allValue, setAllValue] = useState({
-        username: "",
-        password: ""
-    })
+        username: '',
+        password: '',
+    });
     const [error, setError] = useState('');
 
     const router = useRouter();
 
     const handle = {
         onChangeField: (value, name) => {
-            // Assuming allValues is your state variable
             setAllValue((prevValues) => ({
                 ...prevValues,
                 [name]: value,
@@ -25,23 +24,25 @@ const Login = () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ username: allValue?.username, password: allValue?.password, expiresInMins: 60 }),
+                    body: JSON.stringify({
+                        username: allValue?.username,
+                        password: allValue?.password,
+                        expiresInMins: 60,
+                    }),
                 });
 
-                let data = await response.json()
+                const data = await response.json();
                 if (response.ok) {
-                    console.log('token',);
                     // Redirect to the home page after successful login
                     localStorage.setItem('user', JSON.stringify(data));
                     router.push('/');
-
                 } else {
                     setError(data.message || 'Login failed.');
                 }
             } catch (error) {
                 setError('Login failed. Please try again.');
             }
-        }
+        },
     };
 
     return (
@@ -66,7 +67,7 @@ const Login = () => {
                 <button
                     onClick={() => handle.login()}
                     className="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 focus:outline-none"
-                    type='submit'
+                    type="submit"
                 >
                     Log in
                 </button>
