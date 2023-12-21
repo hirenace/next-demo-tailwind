@@ -3,7 +3,7 @@ import { render, screen, act, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { useRouter } from 'next/router';
-import Login from '../pages/login';
+import Login from '../../pages/auth/login';
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn(),

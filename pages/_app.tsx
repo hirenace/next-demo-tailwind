@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import '../styles/tailwind.css';
@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
             router.push('/');
         } else {
             // User is not logged in, redirect to login page
-            router.push('/login');
+            router.push('/auth/login');
         }
     }, []);
 

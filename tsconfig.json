@@ -27,6 +27,11 @@
   "exclude": [
     "node_modules"
   ],
+  "plugins": [
+    {
+      "name": "next"
+    }
+  ],
   "paths": {
     "@/*": [
       "./src/*"

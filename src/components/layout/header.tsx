@@ -1,7 +1,7 @@
 // components/Header.tsx
 import React from 'react';
 import { useRouter } from 'next/router';
-import { getFullName } from '../../utils/common';
+import { getFullName } from '../../utils/function/common';
 const Header = () => {
     const router = useRouter();
     // Assuming you have a function to get the user name and authentication status
@@ -9,7 +9,7 @@ const Header = () => {
     const handle = {
         logout: () => {
             localStorage.clear()
-            router.push('/login');
+            router.push('/auth/login');
         },
         getUserName: () => {
             let userToken: any = typeof window !== 'undefined' ? localStorage.getItem('user') : null;
