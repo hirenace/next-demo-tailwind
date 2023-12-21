@@ -62,7 +62,8 @@ const Login = () => {
                         name={'username'}
                         value={allValue?.username}
                         onChange={(e) => handle.onChangeField(e, 'username')}
-                        className="w-full p-3 mb-4 border rounded-md focus:outline-none focus:border-blue-500" />
+                        className="w-full p-3 mb-4 border rounded-md focus:outline-none focus:border-blue-500"
+                    />
                 </div>
                 <div className="flex items-center justify-center">
                     <CenteredInput
@@ -71,7 +72,8 @@ const Login = () => {
                         placeholder={password_placeholder}
                         value={allValue?.password}
                         onChange={(e) => handle.onChangeField(e, 'password')}
-                        className="w-full p-3 mb-4 border rounded-md focus:outline-none focus:border-blue-500" />
+                        className="w-full p-3 mb-4 border rounded-md focus:outline-none focus:border-blue-500"
+                    />
                 </div>
                 <CenteredButton
                     onClick={() => handle.login()}
@@ -79,6 +81,7 @@ const Login = () => {
                     type={"button"}
                     buttonText={login_button_text}
                 />
+
                 {error && (
                     <p role="alert" className="text-red-500 mt-4 text-center">
                         {error}

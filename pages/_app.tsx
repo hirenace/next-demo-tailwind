@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import '../styles/tailwind.css';
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
     const router = useRouter();
 
     useEffect(() => {
