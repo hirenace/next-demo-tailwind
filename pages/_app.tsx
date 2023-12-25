@@ -8,8 +8,6 @@ const MyApp = ({ Component, pageProps }) => {
 
     useEffect(() => {
         const userToken: any = typeof window !== 'undefined' && JSON.parse(localStorage.getItem('user'));
-        console.log('userToken', userToken, userToken.token);
-
         // Perform your authentication check here
         if (userToken && userToken.token) {
             // User is logged in

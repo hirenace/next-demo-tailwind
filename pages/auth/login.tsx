@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import globalMessages from '../../src/utils/globalization';
 import CenteredInput from '../../src/components/higher-order-component/input';
@@ -15,6 +15,19 @@ const Login = () => {
 
     //destructuring object
     const { title, username_placeholder, password_placeholder, login_button_text } = globalMessages?.login_form
+
+    const userToken: any = typeof window !== 'undefined' && JSON.parse(localStorage.getItem('user'));
+    if (userToken && !userToken?.token) {
+        return router.push('/auth/login');
+    }
+
+    useEffect(() => {
+        // Check for the authorization token in localStorage
+        const userToken: any = typeof window !== 'undefined' && JSON.parse(localStorage.getItem('user'));
+        if (userToken) {
+            router.push("/");
+        }
+    }, []);
 
     const handle = {
         onChangeField: (value: any, name: any) => {
